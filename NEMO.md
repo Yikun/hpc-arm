@@ -49,30 +49,30 @@
 
 1. Run the following command to install the system dependency package:
 
-
+```
     yum install libxml2* systemd-devel.aarch64 numa* -y
-
+```
 2. Run the following commands to install Open MPI:
 
-
+```
     wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz
     tar -zxvf openmpi-4.0.3.tar.gz
     cd openmpi-4.0.3
     ./configure --prefix=/path/to/OPENMPI --enable-pretty-print-stacktrace --enable-orterun-prefix-by-default  --with-cma --enable-mpi1-compatibility
     make -j 16
     make install
-
+```
 3. Configure environment variables:
 
-
+```
     export PATH=/path/to/OPENMPI/bin:$PATH
     export LD_LIBRARY_PATH=/path/to/OPENMPI/lib:$LD_LIBRARY_PATH
-
+```
 ### Installing HDF5
 
 1. Run the following commands to install HDF5:
 
-
+```
     wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.6/src/hdf5-1.10.6.tar.gz
     tar -zxvf hdf5-1.10.6.tar.gz
     cd hdf5-1.10.6
@@ -80,56 +80,55 @@
     ./configure --prefix=/path/to/HDF5 --build=aarch64-unknown-linux-gnu --enable-fortran --enable-static=yes --enable-parallel --enable-shared CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort
     make -j 16
     make install
-
+```
 2. Configure environment variables:
-
-
-    export PATH=/path/to/hdf5/bin:$PATH
-    export LD_LIBRARY_PATH=/path/to/hdf5/lib:$LD_LIBRARY_PATH
-
+```
+    export PATH=/path/to/HDF5/bin:$PATH
+    export LD_LIBRARY_PATH=/path/to/HDF5/lib:$LD_LIBRARY_PATH
+```
 ### Installing PNETCDF
 
 1. Run the following commands to install PNETCDF:
 
-
+```
     wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz
     tar -zxvf pnetcdf-1.12.1.tar.gz
     cd pnetcdf-1.12.1
-    mkdir -p /path/to/pnetcdf
+    mkdir -p /path/to/PNETCDF
     
     ./configure --prefix=/path/to/PNETCDF --build=aarch64-unknown-linux-gnu CFLAGS="-fPIC -DPIC" CXXFLAGS="-fPIC -DPIC" FCFLAGS="-fPIC" FFLAGS="-fPIC" CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort
     make -j 16
     make install
-
+```
 2. Configure environment variables:
+```
 
-
-    export PATH=/path/to/pnetcdf/bin:$PATH
-    export LD_LIBRARY_PATH=/path/to/pnetcdf/lib:$LD_LIBRARY_PATH
-
+    export PATH=/path/to/PNETCDF/bin:$PATH
+    export LD_LIBRARY_PATH=/path/to/PNETCDF/lib:$LD_LIBRARY_PATH
+```
 ### Installing NETCDF-C
 
 1. Run the following commands to install NETCDF-C:
 
-
-    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.3.tar.gz
+```
+    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.3.tar.gz -o netcdf-c-4.7.3.tar.gz
     tar -zxvf netcdf-c-4.7.3.tar.gz
     cd netcdf-c-4.7.3
-    mkdir -p /path/to/netcdf
+    mkdir -p /path/to/NETCDF
     ./configure --prefix=/path/to/NETCDF --build=aarch64-unknown-linux-gnu --enable-shared --enable-netcdf-4 --enable-dap --with-pic --disable-doxygen --enable-static --enable-pnetcdf --enable-largefile CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort CPPFLAGS="-I/path/to/HDF5/include -I/path/to/PNETCDF/include" LDFLAGS="-L/path/to/HDF5/lib -L/path/to/PNETCDF/lib -Wl,-rpath=/path/to/HDF5/lib -Wl,-rpath=/path/to/PNETCDF/lib" CFLAGS="-L/path/to/HDF5/lib -L/path/to/PNETCDF/lib -I/path/to/HDF5/include -I/path/to/PNETCDF/include"
     make -j 16
     make install
-
+```
 2. Configure environment variables:
 
-
-    export PATH=/path/to/netcdf/bin:$PATH
-    export LD_LIBRARY_PATH=/path/to/netcdf/lib:$LD_LIBRARY_PATH
-
+```
+    export PATH=/path/to/NETCDF/bin:$PATH
+    export LD_LIBRARY_PATH=/path/to/NETCDF/lib:$LD_LIBRARY_PATH
+```
 ### Installing NETCDF-FORTRAN
 
 1. Run the following commands to install NETCDF-FORTRAN:
-
+```
 
     wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
     tar -zxvf netcdf-fortran-4.5.2.tar.gz
@@ -137,7 +136,7 @@
     ./configure --prefix=/path/to/NETCDF --build=aarch64-unknown-linux-gnu --enable-shared --with-pic --disable-doxygen --enable-largefile --enable-static CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort CPPFLAGS="-I/path/to/HDF5/include -I/path/to/NETCDF/include" LDFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -Wl,-rpath=/path/to/HDF5/lib -Wl,-rpath=/path/to/NETCDF/lib" CFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include" CXXFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include" FCFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include"
     make -j 16
     make install
-
+```
 ### Installing XIOS
 
 1. Get the source code:
@@ -152,11 +151,11 @@ svn co https://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5
 
 ```shell
 #HDF5安装目录
-export HDF5_INC_DIR="/path/to/hdf5/include"
-export HDF5_LIB_DIR="/path/to/hdf5/lib"
+export HDF5_INC_DIR="/path/to/HDF5/include"
+export HDF5_LIB_DIR="/path/to/HDF5/lib"
 #NetCDF安装目录
-export NETCDF_INC_DIR="/path/to/netcdf/include"
-export NETCDF_LIB_DIR="/path/to/netcdf/lib"
+export NETCDF_INC_DIR="/path/to/NETCDF/include"
+export NETCDF_LIB_DIR="/path/to/NETCDF/lib"
 ```
 
 `vim arch/arch-AARCH64_LINUX.fcm`
@@ -191,16 +190,16 @@ export NETCDF_LIB_DIR="/path/to/netcdf/lib"
 `vim arch/arch-AARCH64_LINUX.path`
 
 ```shell
-NETCDF_INCDIR="-I /path/to/netcdf/include"
-NETCDF_LIBDIR="-L /path/to/netcdf/lib"
+NETCDF_INCDIR="-I /path/to/NETCDF/include"
+NETCDF_LIBDIR="-L /path/to/NETCDF/lib"
 NETCDF_LIB="-lnetcdff -lnetcdf"
 
 MPI_INCDIR="-I /path/to/OpenMPI/include"
 MPI_LIBDIR="-L /path/to/OpenMPI/lib"
 MPI_LIB="-lmpi"
 
-HDF5_INCDIR="-I /path/to/hdf5/include"
-HDF5_LIBDIR="-L /path/to/hdf5/lib"
+HDF5_INCDIR="-I /path/to/HDF5/include"
+HDF5_LIBDIR="-L /path/to/HDF5/lib"
 HDF5_LIB="-lhdf5_hl -lhdf5  -lz"
 ```
 
@@ -226,8 +225,8 @@ Edit the arch files:
 
 
 ```shell
-%NCDF_HOME           /path/to/netcdf
-%HDF5_HOME           /path/to/hdf5/
+%NCDF_HOME           /path/to/NETCDF
+%HDF5_HOME           /path/to/HDF5/
 %XIOS_HOME           /path/to/xios-2.5
 
 %NCDF_INC            -I%NCDF_HOME/include -I%HDF5_HOME/include
@@ -263,6 +262,6 @@ cd config
 Check whether the installation is successful:
 
 
-    ll your_configure/EXP00/nemo
+    ls -l your_configure/EXP00/nemo
 
 If the executable  file is generated correctly, the installation is completed successful.
