@@ -150,10 +150,10 @@ svn co https://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5
 `vim arch/arch-AARCH64_LINUX.env`
 
 ```shell
-#HDF5安装目录
+#PATH to install HDF5
 export HDF5_INC_DIR="/path/to/HDF5/include"
 export HDF5_LIB_DIR="/path/to/HDF5/lib"
-#NetCDF安装目录
+#PATH to install NETCDF
 export NETCDF_INC_DIR="/path/to/NETCDF/include"
 export NETCDF_LIB_DIR="/path/to/NETCDF/lib"
 ```
