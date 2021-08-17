@@ -19,15 +19,28 @@ Open-source protocol: public domain
 
 ## Configuring the Compilation Environment
 
+### Installing dependencies
+
+```shell
+yum install time -y
+yum install curl* -y
+yum install libcurl-devel -y
+yum install wget -y
+yum install csh -y
+yum install zlib* -y
+```
+
 ### Installing GNU 9.3
 
+```shell
+yum install -y centos-release-scl
+yum install -y devtoolset-9-gcc
+yum install -y devtoolset-9-gcc-c++
+yum install -y devtoolset-9-binutils
+scl enable devtoolset-9 bash
+echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
+```
 
-    yum install -y centos-release-scl
-    yum install -y devtoolset-9-gcc
-    yum install -y devtoolset-9-gcc-c++
-    yum install -y devtoolset-9-binutils
-    scl enable devtoolset-9 bash
-    echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 ### Installing Open MPI
 1. Run the following command to install the system dependency package:
 ```

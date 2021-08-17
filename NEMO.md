@@ -41,13 +41,14 @@ yum install subversion -y
 
 ### Installing GNU 9.3
 
-
-    yum install -y centos-release-scl
-    yum install -y devtoolset-9-gcc
-    yum install -y devtoolset-9-gcc-c++
-    yum install -y devtoolset-9-binutils
-    scl enable devtoolset-9 bash
-    echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
+```shell
+yum install -y centos-release-scl
+yum install -y devtoolset-9-gcc
+yum install -y devtoolset-9-gcc-c++
+yum install -y devtoolset-9-binutils
+scl enable devtoolset-9 bash
+echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
+```
 
 ### Installing Open MPI
 
