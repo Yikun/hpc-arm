@@ -175,6 +175,9 @@ cmake \
 -DGMX_X11=off \
 -DREGRESSIONTEST_DOWNLOAD=OFF \
 ../
+
+make -j $(nproc)
+make install
 ```
 
 Run the environment script
