@@ -47,7 +47,7 @@ yum install -y devtoolset-9-gcc
 yum install -y devtoolset-9-gcc-c++
 yum install -y devtoolset-9-binutils
 scl enable devtoolset-9 bash
-echo "souce /opt/rh/devtoolset-9/enable" >> /etc/profile
+echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 
 
 ### Installing Open MPI

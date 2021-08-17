@@ -42,7 +42,7 @@ The recommended version is WRF V4.2
     yum install -y devtoolset-9-gcc-c++
     yum install -y devtoolset-9-binutils
     scl enable devtoolset-9 bash
-    echo "souce /opt/rh/devtoolset-9/enable" >> /etc/profile
+    echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 ### Installing Open MPI
 1. Run the following command to install the system dependency package:
 
