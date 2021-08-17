@@ -12,7 +12,9 @@ Open-source protocol: MIT/X License
 
 ##### Recommended Version
 The recommended version is ROMS V3.6
+
 ## Environment Requirements
+
 ### Software Requirements
 | Item         | Version  |  Download Address                                                          |
 | ------------ | -------- | -------------------------------------------------------------------------- |
@@ -22,12 +24,15 @@ The recommended version is ROMS V3.6
 |  NETCDF-C    |  4.7.3   |  https://github.com/Unidata/netcdf-c/releases/tag/v4.7.3                   |
 |  NETCDF-F    |  4.5.2   |  https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2             |
 |  ROMS        |  3.6     |  https://www.myroms.org/svn/src/trunk                                      |
+
 ### OS Requirements
 | Item    | Version     | How to Obtain                     |
 | ------- | ----------- | --------------------------------- |
 | CentOS  | 7.6         |  https://www.centos.org/download/ |
 | Kernel  | 4.14.0-115  |  Included in the OS image.        |
+
 ## Configuring the Compilation Environment
+
 ### Installing GNU 9.3
 
 

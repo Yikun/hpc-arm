@@ -14,6 +14,7 @@ Brief description: a three-dimensional Euler grid-based atmospheric chemistry an
 ### Software Requirements
 | Item  | Version  |  Download Address |
 | ------------ | ------------ | ------------ |
+|  OPENMPI     |    4.0.3     | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz  |
 |    HDF5      |    1.10.1    | https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/     |
 |    PNETCDF   |    1.9.0     | https://parallel-netcdf.github.io/wiki/Download.html            |
 |    NETCDF-C  |    4.7.0     | https://github.com/Unidata/netcdf-c/releases/tag/v4.7.0           |

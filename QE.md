@@ -5,16 +5,18 @@ Open-source protocol: public domain
 ## Environment Requirements
 ### Software Requirements
 | Item  | Version  |  Download Address |
-| ------------ | ------------ | ------------ |
-|  OpenMPI  | 4.0.3 | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz |
-|  OpenBLAS |  0.3.14 | https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.14.tar.gz |
-|  Scalapack |  2.1.0 | http://www.netlib.org/scalapack/scalapack-2.1.0.tgz |
+| ------------ | ----------- | ------------ |
+|  OpenMPI          | 4.0.3  | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz |
+|  OpenBLAS         | 0.3.14 | https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.14.tar.gz |
+|  Scalapack        | 2.1.0  | http://www.netlib.org/scalapack/scalapack-2.1.0.tgz |
 |  Quantum ESPRESSO | 6.7.0  |  https://github.com/QEF/q-e/archive/refs/tags/qe-6.7.0.tar.gz |
+
 ### OS Requirements
 | Item  | Version  | How to Obtain  |
 | ------------ | ------------ | ------------ |
 |  CentOS | 8.0  |  https://www.centos.org/download/ |
 | Kernel  | 4.18.0-80  |  Included in the OS image. |
+
 ## Configuring the Compilation Environment
 
 ### Installing GNU 9.3

@@ -10,6 +10,7 @@
 
 | Item     | Version | Download Address                                             |
 | -------- | ------- | ------------------------------------------------------------ |
+| OPENMPI  | 4.0.3   | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz  |
 | HDF5     | 1.10.6  | https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.6/src/ |
 | PNETCDF  | 1.12.1  | https://parallel-netcdf.github.io/wiki/Download.html         |
 | NETCDF-C | 4.7.3   | https://github.com/Unidata/netcdf-c/releases/tag/v4.7.3      |

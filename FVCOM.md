@@ -20,12 +20,15 @@ The recommended version is fvcom 4.3
 |  NETCDF-C |  4.7.3  |  https://github.com/Unidata/netcdf-c/releases/tag/v4.7.3                   |
 |  NETCDF-F |  4.5.2  |  https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2             |
 |  WRF      |  4.3    |  http://fvcom.smast.umassd.edu/releases/fvcom-4.3.tar.gz                   |
+
 ### OS Requirements
 | Item    | Version     | How to Obtain                     |
 | ------- | ----------- | --------------------------------- |
 |  CentOS | 7.6         |  https://www.centos.org/download/ |
 |  Kernel | 4.14.0-115  |  Included in the OS image.        |
+
 ## Configuring the Compilation Environment
+
 ### Installing GNU 9.3
 
     yum install -y centos-release-scl

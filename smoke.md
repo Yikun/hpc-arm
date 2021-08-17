@@ -12,23 +12,28 @@ Open-source protocol: LGPL-3.0
 
 ##### Recommended Version
 The recommended version is SMOKE V4.8.1
+
 ## Environment Requirements
+
 ### Software Requirements
 | Item  | Version  |  Download Address |
 | ------------ | ------------ | ------------ |
-|  OPENMPI |  4.0.3 | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz  |
-|  HDF5 |  1.10.1 | https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.gz  |
-|  PNETCDF |  1.8.0 |  https://parallel-netcdf.github.io/Release/parallel-netcdf-1.8.0.tar.gz |
-|  NETCDF-C | 4.4.1.1  |  https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.4.1.1.tar.gz |
-|  NETCDF-F  | 4.4.1  | https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.1.tar.gz  |
-|  IOAPI | 3.2  | https://github.com/cjcoats/ioapi-3.2  |
-|  SMOKE | v481  | https://github.com/CEMPD/SMOKE/releases  |
+|  OPENMPI  |  4.0.3  | https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz  |
+|  HDF5     |  1.10.1 | https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.gz  |
+|  PNETCDF  |  1.8.0  |  https://parallel-netcdf.github.io/Release/parallel-netcdf-1.8.0.tar.gz |
+|  NETCDF-C | 4.4.1.1 |  https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.4.1.1.tar.gz |
+|  NETCDF-F | 4.4.1   | https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.1.tar.gz  |
+|  IOAPI    | 3.2     | https://github.com/cjcoats/ioapi-3.2  |
+|  SMOKE    | v481    | https://github.com/CEMPD/SMOKE/releases  |
+
 ### OS Requirements
 | Item  | Version  | How to Obtain  |
 | ------------ | ------------ | ------------ |
 |  CentOS | 7.6  |  https://www.centos.org/download/ |
 | Kernel  | 4.14.0-115  |  Included in the OS image. |
+
 ## Configuring the Compilation Environment
+
 ### Installing dependencies
 
 
