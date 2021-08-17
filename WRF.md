@@ -26,14 +26,19 @@ The recommended version is WRF V4.2
 | ------------ | ------------ | ------------ |
 |  CentOS | 7.6  |  https://www.centos.org/download/ |
 | Kernel  | 4.14.0-115  |  Included in the OS image. |
+
 ## Configuring the Compilation Environment
+
 ### Installing dependencies
 
+```shell
+yum install time -y
+yum install curl* -y
+yum install wget -y
+yum install csh -y
+yum install zlib* -y
+```
 
-    yum install time -y
-    yum install curl* -y
-    yum install csh -y
-    yum install zlib* -y
 ### Installing GNU 9.3
 
 

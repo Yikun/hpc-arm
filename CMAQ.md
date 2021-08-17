@@ -32,11 +32,13 @@ Brief description: a three-dimensional Euler grid-based atmospheric chemistry an
 
 ### Installing dependencies
 
-
+```shell
 yum install time -y
 yum install curl* -y
+yum install wget -y
 yum install csh -y
 yum install zlib* -y
+```
 
 
 ### Installing GNU 9.3

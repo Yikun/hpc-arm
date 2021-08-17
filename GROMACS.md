@@ -29,6 +29,7 @@
 ```shell
 yum install time -y
 yum install curl* -y
+yum install wget -y
 yum install csh -y
 yum install zlib* -y
 ```
