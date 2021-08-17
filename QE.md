@@ -39,7 +39,7 @@ Open-source protocol: public domain
     tar -zxvf openmpi-4.0.3.tar.gz
     cd openmpi-4.0.3
     ./configure --prefix=/path/to/OPENMPI --enable-pretty-print-stacktrace --enable-orterun-prefix-by-default  --with-cma --enable-mpi1-compatibility
-    make -j 16
+    make -j $(nproc) all
     make install
 ```
 3. Configure environment variables:

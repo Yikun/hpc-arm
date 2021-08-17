@@ -41,6 +41,8 @@ yum install curl* -y
 yum install wget -y
 yum install csh -y
 yum install zlib* -y
+yum install perl -y
+yum install make -y
 ```
 
 ### Installing GNU 9.3
@@ -52,6 +54,7 @@ yum install zlib* -y
     yum install -y devtoolset-9-binutils
     scl enable devtoolset-9 bash
     echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
+
 ### Installing Open MPI
 1. Run the following command to install the system dependency package:
 
@@ -64,13 +67,14 @@ yum install zlib* -y
     tar -zxvf openmpi-4.0.3.tar.gz
     cd openmpi-4.0.3
     ./configure --prefix=/path/to/OPENMPI --enable-pretty-print-stacktrace --enable-orterun-prefix-by-default  --with-cma --enable-mpi1-compatibility
-    make -j 16
+    make -j $(nproc) all
     make install
 3. Configure environment variables:
 
 
     export PATH=/path/to/OPENMPI/bin:$PATH
     export LD_LIBRARY_PATH=/path/to/OPENMPI/lib:$LD_LIBRARY_PATH
+
 ### Installing HDF5
 1. Run the following commands to install HDF5:
 
