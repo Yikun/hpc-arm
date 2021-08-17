@@ -32,6 +32,7 @@ yum install curl* -y
 yum install wget -y
 yum install csh -y
 yum install zlib* -y
+yum install openssl* -y
 ```
 
 ### Installing GNU 9.3
