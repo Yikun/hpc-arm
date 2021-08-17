@@ -10,7 +10,9 @@ Open-source protocol: GPL 3.0
 
 ##### Recommended Version
 The recommended version is fvcom 4.3
+
 ## Environment Requirements
+
 ### Software Requirements
 | Item      | Version |  Download Address |
 | --------- | ------- | -------------------------------------------------------------------------- |
@@ -28,6 +30,19 @@ The recommended version is fvcom 4.3
 |  Kernel | 4.14.0-115  |  Included in the OS image.        |
 
 ## Configuring the Compilation Environment
+
+### Installing dependencies
+
+```shell
+yum install time -y
+yum install curl* -y
+yum install libcurl-devel -y
+yum install wget -y
+yum install csh -y
+yum install zlib* -y
+yum install perl -y
+yum install make -y
+```
 
 ### Installing GNU 9.3
 

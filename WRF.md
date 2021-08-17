@@ -22,7 +22,7 @@ The recommended version is WRF V4.2
 |  HDF5     | 1.10.6 | https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.6/src/  |
 |  PNETCDF  | 1.12.1 | https://parallel-netcdf.github.io/wiki/Download.html |
 |  NETCDF-C | 4.7.3  | https://github.com/Unidata/netcdf-c/releases/tag/v4.7.3 |
-| NETCDF-F  | 4.5.2  | https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2  |
+|  NETCDF-F | 4.5.2  | https://github.com/Unidata/netcdf-fortran/releases/tag/v4.5.2  |
 |  WRF      | 4.2    | https://github.com/wrf-model/WRF/archive/refs/tags/v4.2.tar.gz  |
 
 ### OS Requirements
@@ -38,6 +38,7 @@ The recommended version is WRF V4.2
 ```shell
 yum install time -y
 yum install curl* -y
+yum install libcurl-devel -y
 yum install wget -y
 yum install csh -y
 yum install zlib* -y

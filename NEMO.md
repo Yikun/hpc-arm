@@ -32,6 +32,7 @@
 ```shell
 yum install time -y
 yum install curl* -y
+yum install libcurl-devel -y
 yum install wget -y
 yum install csh -y
 yum install zlib* -y
