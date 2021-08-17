@@ -126,7 +126,7 @@ yum install zlib* -y
 1. Run the following commands to install NETCDF-C:
 
 ```
-    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.4.1.1.tar.gz -O netcdf-c-4.4.1.1.tar.gz
+    wget -O netcdf-c-4.4.1.1.tar.gz https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.4.1.1.tar.gz
     
     tar -zxvf netcdf-c-4.4.1.1.tar.gz
     
@@ -149,7 +149,7 @@ yum install zlib* -y
 1. Run the following commands to install NETCDF-FORTRAN:
 
 ```
-    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.1.tar.gz -O netcdf-fortran-4.4.1.tar.gz
+    wget -O netcdf-fortran-4.4.1.tar.gz https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.4.1.tar.gz
     
     tar -zxvf netcdf-fortran-4.4.1.tar.gz
     

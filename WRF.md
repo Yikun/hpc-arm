@@ -112,7 +112,7 @@ yum install make -y
 1. Run the following commands to install NETCDF-C:
 
 
-    wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.3.tar.gz
+    wget -O netcdf-c-4.7.3.tar.gz https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.3.tar.gz
     tar -zxvf netcdf-c-4.7.3.tar.gz
     cd netcdf-c-4.7.3
     mkdir -p /path/to/netcdf
@@ -128,7 +128,7 @@ yum install make -y
 1. Run the following commands to install NETCDF-FORTRAN:
 
 
-    wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
+    wget -O netcdf-fortran-4.5.2.tar.gz https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.2.tar.gz
     tar -zxvf netcdf-fortran-4.5.2.tar.gz
     cd netcdf-fortran-4.5.2
     ./configure --prefix=/path/to/NETCDF --build=aarch64-unknown-linux-gnu --enable-shared --with-pic --disable-doxygen --enable-largefile --enable-static CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort CPPFLAGS="-I/path/to/HDF5/include -I/path/to/NETCDF/include" LDFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -Wl,-rpath=/path/to/HDF5/lib -Wl,-rpath=/path/to/NETCDF/lib" CFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include" CXXFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include" FCFLAGS="-L/path/to/HDF5/lib -L/path/to/NETCDF/lib -I/path/to/HDF5/include -I/path/to/NETCDF/include"
@@ -138,11 +138,11 @@ yum install make -y
 1. Run the following command to obtain the source code package:
 
 
-    wget https://github.com/wrf-model/WRF/archive/refs/tags/v4.2.tar.gz
+    wget -O wrf-v4.2.tar.gz https://github.com/wrf-model/WRF/archive/refs/tags/v4.2.tar.gz
 2. Decompress the WRF installation package:
 
 
-    tar -zxvf v4.2.tar.gz
+    tar -zxvf wrf-v4.2.tar.gz
 3. Run the following command to switch to WRF source code directory:
 
 
