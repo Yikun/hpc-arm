@@ -36,6 +36,7 @@ yum install libcurl-devel -y
 yum install wget -y
 yum install csh -y
 yum install zlib* -y
+yum install subversion -y
 ```
 
 ### Installing GNU 9.3
@@ -146,6 +147,7 @@ yum install zlib* -y
 
 ```shell
 svn co https://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5
+cd xios-2.5
 ```
 
 2. Create the arch files:
@@ -209,7 +211,9 @@ HDF5_LIB="-lhdf5_hl -lhdf5  -lz"
 3. Run the build script:
 
 ```shell
-./make_xios --job 32 --full --arch AARCH64_HCC_LINUX -dev
+yum install cpan -y
+cpan -f install URI
+./make_xios --job 32 --full --arch AARCH64_LINUX -dev
 ```
 
 
