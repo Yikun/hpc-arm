@@ -85,7 +85,7 @@ tar -zxvf fftw-3.3.9.tar.gz
 cd fftw-3.3.9
 make clean
 ./configure --enable-neon --enable-shared --enable-float --prefix=/path/to/FFTW
-make -j 16
+make -j $(nproc)
 make install
 ```
 
@@ -103,7 +103,7 @@ export LD_LIBRARY_PATH=/path/to/FFTW/lib:$LD_LIBRARY_PATH
 wget https://github.com/xianyi/OpenBLAS/releases/download/v0.3.15/OpenBLAS-0.3.15.tar.gz
 tar -zxvf OpenBLAS-0.3.15.tar.gz
 cd OpenBLAS-0.3.15
-make
+make -j $(nproc)
 make PREFIX=/path/to/OPENBLAS install
 ```
 
@@ -122,7 +122,7 @@ wget https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1.tar
 tar -zxvf cmake-3.21.1.tar.gz
 cd cmake-3.21.1
 ./configure --prefix=/path/to/CMAKE
-make
+make -j $(nproc)
 make install
 ```
 

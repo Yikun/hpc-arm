@@ -57,7 +57,7 @@ Open-source protocol: public domain
 	export CC=`which gcc`
 	export CXX=`which g++`
 	export FC=`which gfortran`
-    make
+    make -j $(nproc)
     make PREFIX=/path/to/OPENBLAS install
 ```
 2. Configure environment variables:
@@ -95,7 +95,7 @@ Open-source protocol: public domain
 	FCFLAGS="-O3" CFLAGS="-O3" \
 	--with-scalapack=yes \
 	--prefix=/path/to/QE
-	make -j20 pwall
+	make -j $(nproc) pwall
 	make install
 ```
 2. Configure environment variables:
