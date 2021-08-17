@@ -57,9 +57,9 @@ echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 
 1. Install the system dependency package:
 
-
+```shell
 yum install libxml2* systemd-devel.aarch64 numa* -y
-
+```
 
 2. Install Open MPI:
 

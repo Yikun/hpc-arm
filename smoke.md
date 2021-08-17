@@ -58,10 +58,11 @@ echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 
 ### Installing Open MPI
 1. Run the following command to install the system dependency package:
+
+```shell
+yum install libxml2* systemd-devel.aarch64 numa* -y
 ```
 
-    yum install libxml2* systemd-devel.aarch64 numa* -y
-```
 2. Run the following commands to install Open MPI:
 
 ```
