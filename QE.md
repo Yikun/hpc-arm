@@ -72,10 +72,11 @@ Open-source protocol: public domain
     tar -xvf scalapack-2.1.0.tgz
     cd scalapack-2.1.0
     cp SLmake.inc.example SLmake.inc
-	vi SLmake.inc ,and set:
+	vi SLmake.inc , and set:
 	BLASLIB       = -L/path/to/OPENBLAS/lib -lopenblas
 	LAPACKLIB     = -L/path/to/OPENBLAS/lib -lopenblas
-    make
+    make -j $(nproc)
+    mkdir -p /path/to/SCALAPACK
     cp libscalapack.a /path/to/SCALAPACK
 ```
 2. Configure environment variables:
