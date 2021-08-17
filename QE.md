@@ -49,73 +49,85 @@ yum install libxml2* systemd-devel.aarch64 numa* -y
 ```
 
 2. Run the following commands to install Open MPI:
+
+```shell
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz
+tar -zxvf openmpi-4.0.3.tar.gz
+cd openmpi-4.0.3
+./configure --prefix=/path/to/OPENMPI --enable-pretty-print-stacktrace --enable-orterun-prefix-by-default  --with-cma --enable-mpi1-compatibility --enable-mpi-fortran=yes
+make -j $(nproc) all
+make install
 ```
-    wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.3.tar.gz
-    tar -zxvf openmpi-4.0.3.tar.gz
-    cd openmpi-4.0.3
-    ./configure --prefix=/path/to/OPENMPI --enable-pretty-print-stacktrace --enable-orterun-prefix-by-default  --with-cma --enable-mpi1-compatibility --enable-mpi-fortran=yes
-    make -j $(nproc) all
-    make install
-```
+
 3. Configure environment variables:
 
-```
-    export PATH=/path/to/OPENMPI/bin:$PATH
-    export LD_LIBRARY_PATH=/path/to/OPENMPI/lib:$LD_LIBRARY_PATH
+```shell
+export PATH=/path/to/OPENMPI/bin:$PATH
+export LD_LIBRARY_PATH=/path/to/OPENMPI/lib:$LD_LIBRARY_PATH
 ```
 ### Installing openblas
 1. Run the following commands to install OpenBLAS:
+
+```shell
+wget -O OpenBLAS-0.3.14.tar.gz https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.14.tar.gz 
+tar -zxvf OpenBLAS-0.3.14.tar.gz
+cd OpenBLAS-0.3.14
+export CC=`which gcc`
+export CXX=`which g++`
+export FC=`which gfortran`
+make -j $(nproc)
+make PREFIX=/path/to/OPENBLAS install
 ```
-    wget -O OpenBLAS-0.3.14.tar.gz https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.14.tar.gz 
-    tar -zxvf OpenBLAS-0.3.14.tar.gz
-    cd OpenBLAS-0.3.14
-	export CC=`which gcc`
-	export CXX=`which g++`
-	export FC=`which gfortran`
-    make -j $(nproc)
-    make PREFIX=/path/to/OPENBLAS install
-```
+
 2. Configure environment variables:
+
+```shell
+export LD_LIBRARY_PATH=/path/to/OPENBLAS/lib:$LD_LIBRARY_PATH
 ```
-    export LD_LIBRARY_PATH=/path/to/OPENBLAS/lib:$LD_LIBRARY_PATH
-```
+
 ### Installing Scalapack
 1. Run the following commands to install Scalapack:
 
+```shell
+wget http://www.netlib.org/scalapack/scalapack-2.1.0.tgz
+tar -xvf scalapack-2.1.0.tgz
+cd scalapack-2.1.0
+cp SLmake.inc.example SLmake.inc
+vi SLmake.inc , and set:
+BLASLIB       = -L/path/to/OPENBLAS/lib -lopenblas
+LAPACKLIB     = -L/path/to/OPENBLAS/lib -lopenblas
+make -j $(nproc)
+mkdir -p /path/to/SCALAPACK
+cp libscalapack.a /path/to/SCALAPACK
 ```
-    wget http://www.netlib.org/scalapack/scalapack-2.1.0.tgz
-    tar -xvf scalapack-2.1.0.tgz
-    cd scalapack-2.1.0
-    cp SLmake.inc.example SLmake.inc
-	vi SLmake.inc , and set:
-	BLASLIB       = -L/path/to/OPENBLAS/lib -lopenblas
-	LAPACKLIB     = -L/path/to/OPENBLAS/lib -lopenblas
-    make -j $(nproc)
-    mkdir -p /path/to/SCALAPACK
-    cp libscalapack.a /path/to/SCALAPACK
-```
+
 2. Configure environment variables:
+
+```shell
+export LD_LIBRARY_PATH=/path/to/SCALAPACK:$LD_LIBRARY_PATH
 ```
-	export LD_LIBRARY_PATH=/path/to/SCALAPACK:$LD_LIBRARY_PATH
-```
+
 ### Installing Quantum ESPRESSO
 1. Run the following commands to install QE:
+
+```shell
+wget https://github.com/QEF/q-e/archive/refs/tags/qe-6.7.0.tar.gz
+tar -zxvf qe-6.7.0.tar.gz
+cd q-e-qe-6.7.0
+export BLAS_LIBS="-L/path/to/OPENBLAS/lib -lopenblas"
+export LAPACK_LIBS="-L/path/to/OPENBLAS/lib -lopenblas"
+export SCALAPACK_LIBS="-L/path/to/SCALAPACK -lscalapack"
+./configure F90=gfortran F77=gfortran MPIF90=mpifort MPIF77=mpifort CC=mpicc \
+FCFLAGS="-O3" CFLAGS="-O3" \
+--with-scalapack=yes \
+--prefix=/path/to/QE
+make -j $(nproc) pwall
+make install
 ```
-    wget https://github.com/QEF/q-e/archive/refs/tags/qe-6.7.0.tar.gz
-    tar -zxvf qe-6.7.0.tar.gz
-    cd q-e-qe-6.7.0
-    export BLAS_LIBS="-L/path/to/OPENBLAS/lib -lopenblas"
-	export LAPACK_LIBS="-L/path/to/OPENBLAS/lib -lopenblas"
-	export SCALAPACK_LIBS="-L/path/to/SCALAPACK -lscalapack"
-	./configure F90=gfortran F77=gfortran MPIF90=mpifort MPIF77=mpifort CC=mpicc \
-	FCFLAGS="-O3" CFLAGS="-O3" \
-	--with-scalapack=yes \
-	--prefix=/path/to/QE
-	make -j $(nproc) pwall
-	make install
-```
+
 2. Configure environment variables:
-```
-    export PATH=/path/to/QE/bin:$PATH
+
+```shell
+export PATH=/path/to/QE/bin:$PATH
 ```
 
