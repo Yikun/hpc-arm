@@ -154,14 +154,15 @@ make install
 1. Run the following command to obtain the source code package:
 
 ```shell
-wget https://codeload.github.com/cjcoats/ioapi-3.2/tar.gz/2020111
+wget -O ioapi-3.2-2020111.tar.gz https://codeload.github.com/cjcoats/ioapi-3.2/tar.gz/2020111
 wget https://codeload.github.com/USEPA/CMAQ/tar.gz/CMAQv5.3.1_19Dec2019
 ```
 
-2. Run the following command to go to the CMAQ directory:
+2. Create the CMAQ installation folder:
 
 ```shell
-cd /path/to/CMAQ
+export CMAQ_HOME=/path/to/CMAQ
+mkdir -p $CMAQ_HOME
 ```
 
 3. Run the following commands to decompress the package and rename ioapi:
@@ -202,7 +203,6 @@ cp ioapi/Makeinclude.Linux2_ia64gfort ioapi/Makeinclude.Linux4_aarch64
 
 ```shell
 cp ioapi/Makefile.nocpl ioapi/Makefile
-export HOME=/path/to/CMAQ
 ```
 
 7. Run the following command to copy the configuration file:
@@ -217,7 +217,7 @@ cp m3tools/Makefile.nocpl m3tools/Makefile
 
         vim m3tools/Makefile
 
-   b. Press i to enter the editing mode and modify the script as follows:
+   b. Press i to enter the editing mode and modify the value of `LIBS`  as follows:
 
         LIBS = -L${OBJDIR} -lioapi -L/path/to/NETCDF/lib -lnetcdff -lnetcdf -L/path/to/HDF5/lib -lhdf5_hl -lhdf5 -lz $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
 
@@ -240,7 +240,7 @@ cp Makefile.template Makefile
 
         BIN        = Linux4_aarch64
         BASEDIR    = ${PWD}
-        INSTALL    = ${HOME}
+        INSTALL    = ${CMAQ_HOME}
         LIBINST    = $(INSTALL)/$(BIN)
         BININST    = $(INSTALL)/$(BIN)
         CPLMODE    = nocpl
@@ -255,7 +255,7 @@ cp Makefile.template Makefile
 11. Run the following command to compile ioapi:
 
 ```shell
-make -j $(nproc) BIN=Linux4_aarch64
+make
 ```
 
 12. Modify the STATE3.EXT file.
