@@ -188,8 +188,9 @@ export LDFLAGS="-L$HDF5/lib -L$PNETCDF/lib -L$NETCDF/lib -lnetcdf -lnetcdff -lpn
 5. Edit the arch/configure.defaults file and add the following information before line 1977:
 
 
-        ################################################## #########
+        ############################################################
         #ARCH   Linux   aarch64,gnu OpenMPI #serial smpar dmpar dm+sm
+        #
         DESCRIPTION     =       GNU ($SFC/$SCC)
         DMPARALLEL      =        1
         OMPCPP          =        -D_OPENMP
@@ -233,14 +234,16 @@ export LDFLAGS="-L$HDF5/lib -L$PNETCDF/lib -L$NETCDF/lib -lnetcdf -lnetcdff -lpn
 6. Run the following command to generate a configuration file:
 
 ```shell
-echo 4 | ./configure
-1->"enter"
+./configure
 ```
+
+When asked for the Linux aarch64 options select `4` (dm+sm).
+When asked whether to compile for nesting select `1` (basic).
 
 7. Run the following command to perform compilation and installation:
 
 ```shell
-./compile -j 16 em_real 2>&1 | tee -a compile.log
+./compile -j $(nproc) em_real 2>&1 | tee -a compile.log
 ```
 
 8. Check whether the installation is successful:
