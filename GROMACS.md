@@ -43,6 +43,7 @@ yum install -y centos-release-scl
 yum install -y devtoolset-9-gcc
 yum install -y devtoolset-9-gcc-c++
 yum install -y devtoolset-9-binutils
+yum install -y devtoolset-9-gcc-gfortran
 scl enable devtoolset-9 bash
 echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
 ```
@@ -137,9 +138,9 @@ export PATH=/path/to/CMAKE/bin:$PATH
 Get the source code
 
 ```shell
-wget https://ftp.gromacs.org/gromacs/gromacs-2021.2.tar.gz
-tar -zxvf gromacs-2021.2.tar.gz
-cd gromacs-2021.2
+wget https://ftp.gromacs.org/gromacs/gromacs-2021.3.tar.gz
+tar -zxvf gromacs-2021.3.tar.gz
+cd gromacs-2021.3
 ```
 
 Create and change to the build directory
@@ -154,18 +155,18 @@ Configure the cmake options and install
 ```shell
 FLAGS="-mcpu=tsv110"; CFLAGS=$FLAGS CXXFLAGS=$FLAGS LDFLAGS="-lgfortran" CC=mpicc CXX=mpicxx \
 cmake \
--DCMAKE_INSTALL_PREFIX=/path/to/INSTALL \
+-DCMAKE_INSTALL_PREFIX=/path/to/GROMACS-2021.3 \
 -DBUILD_SHARED_LIBS=on \
 -DBUILD_TESTING=on \
--DREGRESSIONTEST_DOWNLOAD=on \
--DGMX_BUILD_OWN_FFTW=off \
+-DREGRESSIONTEST_DOWNLOAD=off \
 -DGMX_SIMD=ARM_NEON_ASIMD \
 -DGMX_DOUBLE=off \
 -DGMX_EXTERNAL_BLAS=on \
--DGMX_EXTERNAL_LAPACK=on \
--DGMX_FFT_LIBRARY=fftw3 \
 -DGMX_BLAS_USER= /path/to/OPENBLAS/lib/libopenblas.a \
+-DGMX_EXTERNAL_LAPACK=on \
 -DGMX_LAPACK_USER=/path/to/OPENBLAS/lib/libopenblas.a \
+-DGMX_BUILD_OWN_FFTW=off \
+-DGMX_FFT_LIBRARY=fftw3 \
 -DFFTWF_LIBRARY=/path/to/FFTW/lib/libfftw3f.so \
 -DFFTWF_INCLUDE_DIR=/path/to/FFTW/include/ \
 -DGMX_GPU=off \
@@ -182,7 +183,7 @@ make install
 Run the environment script
 
 ```shell
-source /path/to/INSTALL/bin/GMXRC
+source /path/to/GROMACS-2021.3/bin/GMXRC
 ```
 
 Now your program is ready to run.
