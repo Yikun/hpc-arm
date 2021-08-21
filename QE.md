@@ -36,6 +36,7 @@ yum install zlib* -y
 yum install -y centos-release-scl
 yum install -y devtoolset-9-gcc
 yum install -y devtoolset-9-gcc-c++
+yum install -y devtoolset-9-gcc-gfortran
 yum install -y devtoolset-9-binutils
 scl enable devtoolset-9 bash
 echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
@@ -96,7 +97,7 @@ cp SLmake.inc.example SLmake.inc
 vi SLmake.inc , and set:
 BLASLIB       = -L/path/to/OPENBLAS/lib -lopenblas
 LAPACKLIB     = -L/path/to/OPENBLAS/lib -lopenblas
-make -j $(nproc)
+make
 mkdir -p /path/to/SCALAPACK
 cp libscalapack.a /path/to/SCALAPACK
 ```

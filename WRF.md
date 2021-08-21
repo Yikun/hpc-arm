@@ -52,6 +52,7 @@ yum install make -y
 yum install -y centos-release-scl
 yum install -y devtoolset-9-gcc
 yum install -y devtoolset-9-gcc-c++
+yum install -y devtoolset-9-gcc-gfortran
 yum install -y devtoolset-9-binutils
 scl enable devtoolset-9 bash
 echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
@@ -98,8 +99,8 @@ make install
 2. Configure environment variables:
 
 ```shell
-export PATH=/path/to/hdf5/bin:$PATH
-export LD_LIBRARY_PATH=/path/to/hdf5/lib:$LD_LIBRARY_PATH
+export PATH=/path/to/HDF5/bin:$PATH
+export LD_LIBRARY_PATH=/path/to/HDF5/lib:$LD_LIBRARY_PATH
 ```
 
 ### Installing PNETCDF
@@ -109,7 +110,7 @@ export LD_LIBRARY_PATH=/path/to/hdf5/lib:$LD_LIBRARY_PATH
 wget https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz
 tar -zxvf pnetcdf-1.12.1.tar.gz
 cd pnetcdf-1.12.1
-mkdir -p /path/to/pnetcdf
+mkdir -p /path/to/PNETCDF
 
 ./configure --prefix=/path/to/PNETCDF --build=aarch64-unknown-linux-gnu CFLAGS="-fPIC -DPIC" CXXFLAGS="-fPIC -DPIC" FCFLAGS="-fPIC" FFLAGS="-fPIC" CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort
 make -j $(nproc)
@@ -119,8 +120,8 @@ make install
 2. Configure environment variables:
 
 ```shell
-export PATH=/path/to/pnetcdf/bin:$PATH
-export LD_LIBRARY_PATH=/path/to/pnetcdf/lib:$LD_LIBRARY_PATH
+export PATH=/path/to/PNETCDF/bin:$PATH
+export LD_LIBRARY_PATH=/path/to/PNETCDF/lib:$LD_LIBRARY_PATH
 ```
 
 ### Installing NETCDF-C
@@ -130,7 +131,7 @@ export LD_LIBRARY_PATH=/path/to/pnetcdf/lib:$LD_LIBRARY_PATH
 wget -O netcdf-c-4.7.3.tar.gz https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.7.3.tar.gz
 tar -zxvf netcdf-c-4.7.3.tar.gz
 cd netcdf-c-4.7.3
-mkdir -p /path/to/netcdf
+mkdir -p /path/to/NETCDF
 ./configure --prefix=/path/to/NETCDF --build=aarch64-unknown-linux-gnu --enable-shared --enable-netcdf-4 --enable-dap --with-pic --disable-doxygen --enable-static --enable-pnetcdf --enable-largefile CC=mpicc CXX=mpicxx FC=mpifort F77=mpifort CPPFLAGS="-I/path/to/HDF5/include -I/path/to/PNETCDF/include" LDFLAGS="-L/path/to/HDF5/lib -L/path/to/PNETCDF/lib -Wl,-rpath=/path/to/HDF5/lib -Wl,-rpath=/path/to/PNETCDF/lib" CFLAGS="-L/path/to/HDF5/lib -L/path/to/PNETCDF/lib -I/path/to/HDF5/include -I/path/to/PNETCDF/include"
 make -j $(nproc)
 make install
@@ -139,8 +140,8 @@ make install
 2. Configure environment variables:
 
 ```shell
-export PATH=/path/to/netcdf/bin:$PATH
-export LD_LIBRARY_PATH=/path/to/netcdf/lib:$LD_LIBRARY_PATH
+export PATH=/path/to/NETCDF/bin:$PATH
+export LD_LIBRARY_PATH=/path/to/NETCDF/lib:$LD_LIBRARY_PATH
 ```
 
 ### Installing NETCDF-FORTRAN
@@ -178,9 +179,9 @@ cd WRF-4.2
 
 ```shell
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
-export NETCDF=/path/to/netcdf
-export HDF5=/path/to/hdf5
-export PNETCDF=/path/to/pnetcdf
+export NETCDF=/path/to/NETCDF
+export HDF5=/path/to/HDF5
+export PNETCDF=/path/to/PNETCDF
 export CPPFLAGS="-I$HDF5/include -I$PNETCDF/include -I$NETCDF/include"
 export LDFLAGS="-L$HDF5/lib -L$PNETCDF/lib -L$NETCDF/lib -lnetcdf -lnetcdff -lpnetcdf -lhdf5_hl -lhdf5 -lz"
 ```

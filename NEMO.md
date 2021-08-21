@@ -37,6 +37,7 @@ yum install wget -y
 yum install csh -y
 yum install zlib* -y
 yum install subversion -y
+yum install perl-lib* -y
 ```
 
 ### Installing GNU 9.3
@@ -45,6 +46,7 @@ yum install subversion -y
 yum install -y centos-release-scl
 yum install -y devtoolset-9-gcc
 yum install -y devtoolset-9-gcc-c++
+yum install -y devtoolset-9-gcc-gfortran
 yum install -y devtoolset-9-binutils
 scl enable devtoolset-9 bash
 echo "source /opt/rh/devtoolset-9/enable" >> /etc/profile
@@ -231,8 +233,6 @@ with the following content:
 3. Run the build script:
 
 ```shell
-yum install cpan -y
-cpan -f install URI
 ./make_xios --job 32 --full --arch AARCH64_LINUX -dev
 ```
 
