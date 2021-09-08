@@ -44,6 +44,8 @@ yum install csh -y
 yum install zlib* -y
 yum install perl -y
 yum install make -y
+yum install m4 -y
+yum install file -y
 ```
 
 ### Installing GNU 9.3
@@ -244,7 +246,7 @@ When asked whether to compile for nesting select `1` (basic).
 7. Run the following command to perform compilation and installation:
 
 ```shell
-./compile -j $(nproc) em_real 2>&1 | tee -a compile.log
+./compile em_real 2>&1 | tee -a compile.log
 ```
 
 8. Check whether the installation is successful:
