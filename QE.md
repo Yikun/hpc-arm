@@ -122,7 +122,7 @@ export SCALAPACK_LIBS="-L/path/to/SCALAPACK -lscalapack"
 FCFLAGS="-O3" CFLAGS="-O3" \
 --with-scalapack=yes \
 --prefix=/path/to/QE
-make -j $(nproc) pwall
+make -j $(nproc) all
 make install
 ```
 
